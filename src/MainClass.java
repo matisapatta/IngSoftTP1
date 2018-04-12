@@ -26,9 +26,9 @@ public class MainClass {
         float cantAnegado = 0;
         cantAnegado = ((Sector)campo).getCountAgua();
 
-        System.out.print(cantAnegado);
-
-
+        System.out.println("Porcentaje de agua = ");
+        System.out.print(cantAnegado*100);
+        System.out.println("%");
 
 
     }
