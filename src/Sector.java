@@ -3,11 +3,13 @@ import java.util.ArrayList;
 public class Sector extends Campo {
 
     private ArrayList<Campo> hijos;
-    private float count;
+    private float countAgua;
+    private float countTierra;
 
     public Sector(){
         this.hijos = new ArrayList<>();
-        this.count = 0;
+        this.countAgua = 0;
+        this.countTierra = 0;
     }
 
     public Class getTipo(Class c){
@@ -17,16 +19,31 @@ public class Sector extends Campo {
     public float getCountAgua(){
         float auxCount = 0;
         for(int i=0;i<4;i++) {
-            if(this.getHijo(i) instanceof Agua){
-                count++;
+            if(this.getHijo(i) instanceof Agua) {
+                countAgua++;
             } else if (this.getHijo(i) instanceof Sector){
                 auxCount = ((Sector) this.getHijo(i)).getCountAgua();
             }
         }
-        count = count + auxCount;
-        count = count/4;
-        return count;
+        countAgua = countAgua + auxCount;
+        countAgua = countAgua/4;
+        return countAgua;
     }
+    public float getCountTierra(){
+        float auxCount = 0;
+        for(int i=0;i<4;i++) {
+            if(this.getHijo(i) instanceof Tierra) {
+                countTierra++;
+            } else if (this.getHijo(i) instanceof Sector){
+                auxCount = ((Sector) this.getHijo(i)).getCountTierra();
+            }
+        }
+        countTierra = countTierra + auxCount;
+        countTierra = countTierra/4;
+        return countTierra;
+    }
+
+
 
 
     public Campo getHijo(int i){

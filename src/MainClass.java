@@ -24,12 +24,16 @@ public class MainClass {
         /* Fin campo de prueba */
 
         float cantAnegado = 0;
+        float cantTierra = 0;
         cantAnegado = ((Sector)campo).getCountAgua();
-
+        cantTierra = ((Sector)campo).getCountTierra();
         System.out.println("Porcentaje de agua = ");
         System.out.print(cantAnegado*100);
-        System.out.println("%");
+        System.out.println("%\n");
 
+        System.out.println("Porcentaje de Tierra = ");
+        System.out.print(cantTierra*100);
+        System.out.println("%");
 
     }
 }
