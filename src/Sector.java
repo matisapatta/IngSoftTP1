@@ -16,7 +16,7 @@ public class Sector extends Campo {
         return this.getClass();
     }
 
-    public float getCountAgua(){
+    /*public float getCountAgua(){
         float auxCount = 0;
         for(int i=0;i<4;i++) {
             if(this.getHijo(i) instanceof Agua) {
@@ -40,6 +40,20 @@ public class Sector extends Campo {
         }
         countTierra = countTierra + auxCount;
         countTierra = countTierra/4;
+        return countTierra;
+    }*/
+    public float getCountAgua(){
+        for(int i = 0;i<hijos.size();i++){
+            float countAux = hijos.get(i).getCountAgua()/4;
+            countAgua = countAgua + countAux;
+        }
+        return countAgua;
+    }
+    public float getCountTierra(){
+        for(int i = 0;i<hijos.size();i++){
+            float countAux = hijos.get(i).getCountTierra()/4;
+            countTierra = countTierra + countAux;
+        }
         return countTierra;
     }
 
